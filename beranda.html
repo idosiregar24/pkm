@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anticholest — Teh Herbal Kelor & Stevia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:ital@0;1&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --forest: #1a3a2a;
+            --moss: #2d5c3e;
+            --sage: #4a7c5f;
+            --fern: #6ba080;
+            --mint: #a8c9b5;
+            --cream: #f5f0e8;
+            --parchment: #ede7d8;
+            --warm-white: #faf8f3;
+            --gold: #c8963e;
+            --gold-light: #e8b96a;
+            --bark: #3d2b1f;
+            --text-dark: #1c1c1a;
+            --text-mid: #4a4a45;
+            --text-light: #7a7a72;
+            --accent-red: #8b3a3a;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ─── NAVIGATION ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5rem;
+            height: 68px;
+            background: rgba(245, 240, 232, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(74, 124, 95, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.35rem;
+            color: var(--forest);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-leaf {
+            width: 28px;
+            height: 28px;
+            background: var(--moss);
+            border-radius: 50% 0 50% 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 0.5rem 1.1rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--text-mid);
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            background: var(--forest);
+            color: var(--cream);
+        }
+
+        .nav-cta {
+            background: var(--gold) !important;
+            color: var(--forest) !important;
+            font-weight: 500 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light) !important;
+        }
+
+        /* ─── PAGES ─── */
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            background: var(--forest);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 100px 2.5rem 4rem;
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.06;
+            background-image:
+                radial-gradient(circle at 20% 50%, #6ba080 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, #c8963e 0%, transparent 40%),
+                radial-gradient(circle at 60% 80%, #4a7c5f 0%, transparent 40%);
+        }
+
+        .hero-leaf-deco {
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 520px;
+            height: 520px;
+            opacity: 0.12;
+            background: radial-gradient(ellipse at center, var(--sage) 0%, transparent 70%);
+            border-radius: 50% 0 50% 0;
+        }
+
+        .hero-leaf-deco-2 {
+            position: absolute;
+            left: -80px;
+            bottom: -80px;
+            width: 400px;
+            height: 400px;
+            opacity: 0.08;
+            background: radial-gradient(ellipse at center, var(--gold) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(200, 150, 62, 0.4);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            color: var(--cream);
+            max-width: 700px;
+            animation: fadeUp 0.8s 0.15s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--mint);
+            max-width: 520px;
+            margin: 1.5rem 0 2.5rem;
+            font-weight: 300;
+            animation: fadeUp 0.8s 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s 0.45s ease forwards;
+            opacity: 0;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--forest);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--cream);
+            border: 1px solid rgba(245, 240, 232, 0.35);
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--cream);
+            background: rgba(245, 240, 232, 0.08);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(168, 201, 181, 0.2);
+            padding-top: 2rem;
+            animation: fadeUp 0.8s 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--gold-light);
+        }
+
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: var(--mint);
+            line-height: 1.4;
+            margin-top: 2px;
+            font-weight: 300;
+        }
+
+        /* ─── SECTIONS COMMON ─── */
+        section {
+            padding: 5rem 2.5rem;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            color: var(--forest);
+            max-width: 600px;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        .section-body {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-mid);
+            max-width: 580px;
+            margin-top: 1rem;
+            font-weight: 300;
+        }
+
+        /* ─── FEATURES ─── */
+        .features-section {
+            background: var(--parchment);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5px;
+            margin-top: 3rem;
+            background: rgba(74, 124, 95, 0.12);
+            border: 1.5px solid rgba(74, 124, 95, 0.12);
+        }
+
+        .feature-card {
+            background: var(--warm-white);
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--sage);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            background: var(--cream);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--forest);
+            border-radius: 12px 0 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: var(--forest);
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-desc {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-mid);
+            font-weight: 300;
+        }
+
+        /* ─── INGREDIENTS ─── */
+        .ingredients-section {
+            background: var(--forest);
+            color: var(--cream);
+        }
+
+        .ingredients-section .section-title {
+            color: var(--cream);
+        }
+
+        .ingredients-section .section-title em {
+            color: var(--gold-light);
+        }
+
+        .ingredients-section .section-label {
+            color: var(--fern);
+        }
+
+        .ingredients-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin-top: 3rem;
+            background: rgba(168, 201, 181, 0.1);
+        }
+
+        .ingredient-panel {
+            padding: 3rem 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            transition: background 0.3s;
+        }
+
+        .ingredient-panel:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .ingredient-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredient-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            margin-bottom: 0.3rem;
+        }
+
+        .ingredient-latin {
+            font-family: 'DM Sans', sans-serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--mint);
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredient-desc {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: rgba(245, 240, 232, 0.72);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .ingredient-claims {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .claim-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--mint);
+        }
+
+        .claim-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ─── SCIENCE PAGE ─── */
+        .science-hero {
+            background: var(--forest);
+            padding: 120px 2.5rem 5rem;
+            text-align: center;
+        }
+
+        .science-hero .section-title {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            color: var(--cream);
+        }
+
+        .science-hero .section-title em {
+            color: var(--gold-light);
+        }
+
+        .science-hero .section-label {
+            justify-content: center;
+        }
+
+        .science-hero p {
+            color: var(--mint);
+            font-weight: 300;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5px;
+            background: rgba(74, 124, 95, 0.1);
+        }
+
+        .science-card {
+            background: var(--warm-white);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .science-card:hover {
+            background: var(--cream);
+        }
+
+        .science-card-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-white);
+            background: var(--sage);
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 2px;
+            margin-bottom: 1.25rem;
+        }
+
+        .science-card-tag.gold {
+            background: var(--gold);
+            color: var(--forest);
+        }
+
+        .science-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: var(--forest);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .science-card p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text-mid);
+            font-weight: 300;
+        }
+
+        .science-card-source {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(74, 124, 95, 0.12);
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .science-card-stat {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: var(--parchment);
+            border: 1px solid rgba(74, 124, 95, 0.15);
+            border-radius: 4px;
+            padding: 8px 14px;
+            text-align: center;
+        }
+
+        .stat-badge-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--forest);
+            line-height: 1;
+        }
+
+        .stat-badge-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .mechanism-section {
+            background: var(--parchment);
+            padding: 5rem 2.5rem;
+        }
+
+        .mechanism-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            margin-top: 2.5rem;
+            counter-reset: step;
+        }
+
+        .mechanism-step {
+            padding: 2rem;
+            border-right: 1px solid rgba(74, 124, 95, 0.15);
+            position: relative;
+        }
+
+        .mechanism-step:last-child {
+            border-right: none;
+        }
+
+        .step-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3.5rem;
+            color: rgba(74, 124, 95, 0.12);
+            line-height: 1;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+
+        .step-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1rem;
+            color: var(--forest);
+            margin-bottom: 0.6rem;
+        }
+
+        .step-desc {
+            font-size: 0.83rem;
+            line-height: 1.65;
+            color: var(--text-mid);
+            font-weight: 300;
+        }
+
+        /* ─── SHOP ─── */
+        .shop-hero {
+            background: var(--parchment);
+            padding: 120px 2.5rem 4rem;
+        }
+
+        .shop-hero-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .shop-filter {
+            display: flex;
+            gap: 8px;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(74, 124, 95, 0.25);
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-mid);
+            transition: all 0.2s;
+            font-family: 'DM Sans', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--forest);
+            color: var(--cream);
+            border-color: var(--forest);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5px;
+            background: rgba(74, 124, 95, 0.1);
+            padding: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--warm-white);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            background: var(--cream);
+        }
+
+        .product-card:hover .product-img-inner {
+            transform: scale(1);
+        }
+
+        .product-img {
+            height: 320px;
+            /* dinaikkan agar foto landscape tidak terpotong terlalu banyak */
+            background: var(--forest);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-inner {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-visual {
+            width: z0px;
+            height: 120px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-visual-box {
+            width: 80px;
+            height: 110px;
+            background: var(--moss);
+            border-radius: 6px 6px 4px 4px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 -20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-visual-box::before {
+            content: '🍃';
+            font-size: 28px;
+        }
+
+        .product-visual-box.gold-box {
+            background: var(--gold);
+        }
+
+        .product-visual-box.bark-box {
+            background: var(--bark);
+        }
+
+        .product-badge-corner {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            background: var(--gold);
+            color: var(--forest);
+            padding: 4px 10px;
+            border-radius: 2px;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            color: var(--sage);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: var(--forest);
+            margin-bottom: 0.4rem;
+        }
+
+        .product-desc {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-mid);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            color: var(--forest);
+        }
+
+        .product-price span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 300;
+            display: block;
+        }
+
+        .btn-add {
+            background: var(--forest);
+            color: var(--cream);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .btn-add:hover {
+            background: var(--moss);
+        }
+
+        .cart-notif {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--forest);
+            color: var(--cream);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            display: none;
+            animation: slideIn 0.3s ease;
+            z-index: 200;
+        }
+
+        /* ─── JOURNAL ─── */
+        .journal-hero {
+            background: var(--forest);
+            padding: 120px 2.5rem 5rem;
+        }
+
+        .journal-hero .section-title {
+            color: var(--cream);
+        }
+
+        .journal-hero .section-title em {
+            color: var(--gold-light);
+        }
+
+        .journal-hero p {
+            color: var(--mint);
+            font-weight: 300;
+            max-width: 500px;
+            margin-top: 1rem;
+            line-height: 1.75;
+        }
+
+        .journal-featured {
+            background: var(--parchment);
+            padding: 0 2.5rem 3rem;
+        }
+
+        .journal-featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--warm-white);
+            border: 1px solid rgba(74, 124, 95, 0.12);
+            overflow: hidden;
+            margin-top: -2rem;
+        }
+
+        .journal-featured-img {
+            background: var(--moss);
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journal-featured-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 58, 42, 0.4) 0%, transparent 60%);
+        }
+
+        .journal-featured-body {
+            padding: 3rem;
+        }
+
+        .journal-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-white);
+            background: var(--sage);
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .journal-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: var(--forest);
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+
+        .journal-excerpt {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: var(--text-mid);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .journal-meta {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5px;
+            background: rgba(74, 124, 95, 0.1);
+            padding: 2.5rem 2.5rem 0;
+        }
+
+        .journal-card {
+            background: var(--warm-white);
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .journal-card:hover {
+            background: var(--cream);
+            border-bottom-color: var(--sage);
+        }
+
+        .journal-card-date {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .journal-card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.05rem;
+            color: var(--forest);
+            line-height: 1.3;
+            margin-bottom: 0.6rem;
+        }
+
+        .journal-card-excerpt {
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: var(--text-mid);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .journal-read-more {
+            font-size: 0.78rem;
+            color: var(--sage);
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .journal-read-more::after {
+            content: '→';
+        }
+
+        /* ─── ABOUT ─── */
+        .about-hero {
+            background: var(--bark);
+            padding: 120px 2.5rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(74, 124, 95, 0.15) 0%, transparent 60%);
+        }
+
+        .about-hero .section-label {
+            color: var(--gold);
+        }
+
+        .about-hero .section-title {
+            color: var(--cream);
+            position: relative;
+        }
+
+        .about-hero .section-title em {
+            color: var(--gold-light);
+        }
+
+        .about-manifesto {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            line-height: 1.5;
+            color: var(--mint);
+            max-width: 720px;
+            margin-top: 2rem;
+            font-style: italic;
+            position: relative;
+        }
+
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            padding: 5rem 2.5rem;
+            align-items: start;
+        }
+
+        .about-story h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-story p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-mid);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .about-values {}
+
+        .about-values h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(74, 124, 95, 0.12);
+        }
+
+        .value-item:last-child {
+            border-bottom: none;
+        }
+
+        .value-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1rem;
+            color: var(--forest);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-name::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--sage);
+        }
+
+        .value-desc {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-mid);
+            font-weight: 300;
+            padding-left: 30px;
+        }
+
+        .team-section {
+            background: var(--parchment);
+            padding: 5rem 2.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid rgba(74, 124, 95, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .team-card:hover .team-avatar {
+            border-radius: 50%;
+        }
+
+        .team-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1rem;
+            color: var(--forest);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .contact-section {
+            background: var(--forest);
+            padding: 5rem 2.5rem;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            color: var(--cream);
+            margin: 0 auto 1rem;
+        }
+
+        .contact-section .section-title em {
+            color: var(--gold-light);
+        }
+
+        .contact-section .section-label {
+            justify-content: center;
+        }
+
+        .contact-section p {
+            color: var(--mint);
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+        }
+
+        .contact-form {
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(168, 201, 181, 0.2);
+            border-radius: 4px;
+            padding: 14px 18px;
+            font-size: 0.9rem;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(168, 201, 181, 0.45);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: rgba(168, 201, 181, 0.5);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--bark);
+            color: var(--cream);
+            padding: 3rem 2.5rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand-desc {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: rgba(245, 240, 232, 0.5);
+            font-weight: 300;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(245, 240, 232, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--cream);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245, 240, 232, 0.1);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: rgba(245, 240, 232, 0.35);
+        }
+
+        .footer-sosmed {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .sosmed-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(245, 240, 232, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sosmed-btn:hover {
+            background: rgba(245, 240, 232, 0.1);
+            border-color: rgba(245, 240, 232, 0.35);
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .hero {
+                padding: 100px 1.25rem 3rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .ingredients-split {
+                grid-template-columns: 1fr;
+            }
+
+            .journal-featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about-split {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .products-grid {
+                padding: 1.25rem;
+            }
+
+            .hero-title {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-logo" onclick="showPage('beranda')">
+            <div class="nav-logo-leaf">🍃</div>
+            MorviaStevia
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('beranda')" id="nav-beranda" class="active">Beranda</a></li>
+            <li><a href="#" onclick="showPage('sains')" id="nav-sains">Sains & Khasiat</a></li>
+            <li><a href="#" onclick="showPage('toko')" id="nav-toko">Toko</a></li>
+            <li><a href="#" onclick="showPage('jurnal')" id="nav-jurnal">Jurnal Sehat</a></li>
+            <li><a href="#" onclick="showPage('tentang')" id="nav-tentang">Tentang Kami</a></li>
+            <li><a href="#" class="nav-cta" onclick="showPage('toko')">Beli Sekarang</a></li>
+        </ul>
+    </nav>
+
+    <!-- CART NOTIFICATION -->
+    <div class="cart-notif" id="cartNotif">✓ Produk ditambahkan ke keranjang</div>
+
+    <!-- ═══════════════════════════════════════
+     PAGE: BERANDA
+════════════════════════════════════════ -->
+    <div id="page-beranda" class="page active">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-bg-pattern"></div>
+            <div class="hero-leaf-deco"></div>
+            <div class="hero-leaf-deco-2"></div>
+
+            <div class="hero-badge">Produk Inovatif · Berbasis Sains · PKM-K 2025</div>
+
+            <h1 class="hero-title">
+                Teh yang <em>Bekerja</em><br>untuk Jantungmu
+            </h1>
+
+            <p class="hero-subtitle">
+                Kombinasi unik Daun Kelor (<em style="color:var(--mint)">Moringa oleifera</em>) dan Daun Stevia yang
+                terbukti secara ilmiah membantu menurunkan kolesterol dan menstabilkan gula darah — tanpa pemanis
+                buatan.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="showPage('toko')">Mulai Berlangganan</button>
+                <button class="btn-outline" onclick="showPage('sains')">Lihat Riset Ilmiah →</button>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-num">−11%</div>
+                    <div class="hero-stat-label">Penurunan LDL<br>dalam 8 minggu*</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">+34%</div>
+                    <div class="hero-stat-label">Peningkatan HDL<br>dalam tinjauan sistemik*</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">0 kal</div>
+                    <div class="hero-stat-label">Kalori dari<br>pemanis Stevia</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">25+</div>
+                    <div class="hero-stat-label">Jurnal ilmiah<br>yang mendukung</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <div class="section-label">Mengapa Anticholest</div>
+            <h2 class="section-title">Bukan sekadar teh. Ini <em>terapi harian</em> yang menyenangkan.</h2>
+
+            <div class="features-grid reveal">
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <div class="feature-title">Berbasis Riset Ilmiah</div>
+                    <p class="feature-desc">Setiap klaim manfaat kami didukung oleh jurnal internasional terindeks
+                        PubMed, PMC, dan Frontiers — bukan sekadar testimoni.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💚</div>
+                    <div class="feature-title">Pemanis Alami Nol Kalori</div>
+                    <p class="feature-desc">Stevia 250× lebih manis dari gula biasa, tanpa kalori, tanpa lonjakan gula
+                        darah. Cocok untuk penderita diabetes dan program diet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <div class="feature-title">Bahan Lokal Premium</div>
+                    <p class="feature-desc">Daun kelor dan stevia ditanam secara organik dari petani mitra lokal
+                        Indonesia. Segar, bebas pestisida, dan terstandar kualitas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♻️</div>
+                    <div class="feature-title">Kemasan Ramah Lingkungan</div>
+                    <p class="feature-desc">Kemasan biodegradable dari kertas daur ulang, tinta organik, dan sachet
+                        nilon bebas plastik mikro.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingredients teaser -->
+        <section class="ingredients-section">
+            <div class="section-label">Dua Bahan. Satu Misi.</div>
+            <h2 class="section-title">Formula yang <em>terbukti</em><br>dari alam Indonesia</h2>
+
+            <div class="ingredients-split reveal">
+                <div class="ingredient-panel">
+                    <div class="ingredient-number">01 — Bahan Utama</div>
+                    <h3 class="ingredient-name">Daun Kelor</h3>
+                    <p class="ingredient-latin">Moringa oleifera Lam.</p>
+                    <p class="ingredient-desc">Dijuluki "Pohon Keajaiban" karena kandungan nutrisi yang luar biasa. Kaya
+                        quercetin, kaempferol, dan isothiosianat yang bekerja langsung menghambat sintesis kolesterol.
+                    </p>
+                    <div class="ingredient-claims">
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Menghambat enzim HMG-CoA reductase (mirip mekanisme statin)
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Menurunkan LDL & total kolesterol secara signifikan
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Meningkatkan HDL (kolesterol "baik") hingga 34%
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Efek antioksidan & anti-inflamasi yang kuat
+                        </div>
+                    </div>
+                </div>
+                <div class="ingredient-panel" style="border-left: 1px solid rgba(168,201,181,0.1)">
+                    <div class="ingredient-number">02 — Pemanis Fungsional</div>
+                    <h3 class="ingredient-name">Daun Stevia</h3>
+                    <p class="ingredient-latin">Stevia rebaudiana Bertoni</p>
+                    <p class="ingredient-desc">Pemanis alami asal Amerika Selatan yang digunakan selama 1.500 tahun.
+                        Steviol glycosides-nya tidak diserap usus, sehingga nol kalori dan aman bagi pankreas.</p>
+                    <div class="ingredient-claims">
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Nol kalori, indeks glikemik nol
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Menurunkan LDL & meningkatkan HDL
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Upregulasi reseptor LDL di hati
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Aman menurut EFSA & FDA (ADI 4 mg/kg)
+                        </div>
+                    </div>
+                </div>
+                <div class="ingredient-panel" style="border-left: 1px solid rgba(168,201,181,0.1)">
+                    <div class="ingredient-number">03 — Pemanis Fungsional</div>
+                    <h3 class="ingredient-name">Daun Stevia</h3>
+                    <p class="ingredient-latin">Stevia rebaudiana Bertoni</p>
+                    <p class="ingredient-desc">Pemanis alami asal Amerika Selatan yang digunakan selama 1.500 tahun.
+                        Steviol glycosides-nya tidak diserap usus, sehingga nol kalori dan aman bagi pankreas.</p>
+                    <div class="ingredient-claims">
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Nol kalori, indeks glikemik nol
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Menurunkan LDL & meningkatkan HDL
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Upregulasi reseptor LDL di hati
+                        </div>
+                        <div class="claim-item">
+                            <div class="claim-dot"></div>Aman menurut EFSA & FDA (ADI 4 mg/kg)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2.5rem; text-align: center;">
+                <button class="btn-outline" onclick="showPage('sains')">Baca Penelitian Lengkap →</button>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section style="background: var(--gold); padding: 4rem 2.5rem; text-align: center;">
+            <p
+                style="font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--forest);opacity:0.6;margin-bottom:0.75rem;">
+                Mulai Perjalanan Sehatmu</p>
+            <h2 style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--forest);margin-bottom:1rem;">
+                Coba 14 Hari, Rasakan Perbedaannya</h2>
+            <p
+                style="color:var(--forest);opacity:0.7;max-width:480px;margin:0 auto 2rem;font-size:0.95rem;line-height:1.7;font-weight:300;">
+                Garansi uang kembali 14 hari jika kamu tidak merasakan manfaatnya. Tanpa syarat, tanpa pertanyaan.</p>
+            <button class="btn-primary" style="background:var(--forest);color:var(--cream);"
+                onclick="showPage('toko')">Pilih Paket Terbaik →</button>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-name">Anticholest</div>
+                    <p class="footer-brand-desc">Teh herbal inovatif berbasis sains dari kombinasi Moringa oleifera dan
+                        Stevia rebaudiana. Produk PKM Kewirausahaan Indonesia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a onclick="showPage('beranda')">Beranda</a></li>
+                        <li><a onclick="showPage('sains')">Sains & Khasiat</a></li>
+                        <li><a onclick="showPage('toko')">Toko</a></li>
+                        <li><a onclick="showPage('jurnal')">Jurnal Sehat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a>Teh Sachet Classic</a></li>
+                        <li><a>Teh Premium Loose Leaf</a></li>
+                        <li><a>Paket Starter 30 Hari</a></li>
+                        <li><a>Bundle Keluarga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hubungi</h4>
+                    <ul>
+                        <li><a>hello@morviastevia.id</a></li>
+                        <li><a>@morviastevia</a></li>
+                        <li><a>Tokopedia / Shopee</a></li>
+                        <li><a onclick="showPage('tentang')">Tentang Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2025 Anticholest. Produk PKM-K. Semua hak cipta dilindungi.<br><span
+                        style="font-size:0.7rem;opacity:0.6;">*Klaim berdasarkan referensi jurnal ilmiah. Bukan
+                        pengganti pengobatan medis.</span></div>
+                <div class="footer-sosmed">
+                    <div class="sosmed-btn">📘</div>
+                    <div class="sosmed-btn">📷</div>
+                    <div class="sosmed-btn">🎵</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     PAGE: SAINS & KHASIAT
+════════════════════════════════════════ -->
+    <div id="page-sains" class="page">
+
+        <div class="science-hero">
+            <div class="section-label">Berbasis Bukti Ilmiah</div>
+            <h1 class="section-title">Sains di Balik<br><em>Setiap Cangkir</em></h1>
+            <p>Semua klaim manfaat Anticholest didasarkan pada penelitian peer-reviewed dari jurnal internasional
+                bereputasi tinggi — bukan anekdot, bukan tradisi semata.</p>
+        </div>
+
+        <!-- Mechanism steps -->
+        <section class="mechanism-section">
+            <div class="section-label">Mekanisme Kerja</div>
+            <h2 class="section-title">Bagaimana <em>MorviaStevia</em><br>menurunkan kolesterol?</h2>
+            <div class="mechanism-steps reveal">
+                <div class="mechanism-step">
+                    <div class="step-num">01</div>
+                    <h3 class="step-title">Inhibisi HMG-CoA Reductase</h3>
+                    <p class="step-desc">Quercetin dan kaempferol dari kelor menghambat enzim utama sintesis kolesterol
+                        di hati — mekanisme yang sama dengan obat statin.</p>
+                </div>
+                <div class="mechanism-step">
+                    <div class="step-num">02</div>
+                    <h3 class="step-title">Upregulasi Reseptor LDL</h3>
+                    <p class="step-desc">Steviol glycoside dari stevia meningkatkan jumlah reseptor LDL di permukaan sel
+                        hati, mempercepat pembersihan LDL dari aliran darah.</p>
+                </div>
+                <div class="mechanism-step">
+                    <div class="step-num">03</div>
+                    <h3 class="step-title">Inhibisi Absorpsi Kolesterol</h3>
+                    <p class="step-desc">Kelor menghambat enzim lipase pankreas, mengurangi penyerapan lemak dari
+                        makanan di usus kecil secara langsung.</p>
+                </div>
+                <div class="mechanism-step">
+                    <div class="step-num">04</div>
+                    <h3 class="step-title">Ekskresi Asam Empedu</h3>
+                    <p class="step-desc">Polifenol kelor mendorong ekskresi asam empedu (yang dibuat dari kolesterol)
+                        melalui feses, memaksa tubuh memecah lebih banyak kolesterol.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science cards -->
+        <section style="padding: 0 2.5rem 5rem; background: var(--warm-white);">
+            <div style="margin-bottom: 2rem; padding-top: 3rem;">
+                <div class="section-label">Referensi Penelitian</div>
+                <h2 class="section-title">Bukti dari Jurnal <em>Internasional</em></h2>
+            </div>
+
+            <div class="science-grid reveal">
+                <div class="science-card">
+                    <span class="science-card-tag">Uji Klinis</span>
+                    <h3>Moringa menurunkan LDL 11% & Kolesterol Total 9%</h3>
+                    <p>Uji klinis pada manusia dengan kolesterol tinggi: suplementasi Moringa oleifera selama 8 minggu
+                        menghasilkan penurunan LDL yang signifikan tanpa efek samping yang dilaporkan.</p>
+                    <div class="science-card-stat">
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">−11%</div>
+                            <div class="stat-badge-label">LDL</div>
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">−9%</div>
+                            <div class="stat-badge-label">Total Kol.</div>
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">8 mg</div>
+                            <div class="stat-badge-label">Durasi</div>
+                        </div>
+                    </div>
+                    <div class="science-card-source">Int. Journal of Food Science & Technology, 2023</div>
+                </div>
+
+                <div class="science-card">
+                    <span class="science-card-tag">Systematic Review</span>
+                    <h3>Review 25 Jurnal: HDL Naik 34%, LDL Turun 24%</h3>
+                    <p>Tinjauan sistemik dari 25 jurnal nasional dan internasional menyimpulkan bahwa ekstrak daun kelor
+                        paling efektif dalam meningkatkan HDL dan menurunkan LDL pada pasien hiperlipidemia.</p>
+                    <div class="science-card-stat">
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">+34%</div>
+                            <div class="stat-badge-label">HDL ↑</div>
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">−24%</div>
+                            <div class="stat-badge-label">LDL ↓</div>
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">25</div>
+                            <div class="stat-badge-label">Jurnal</div>
+                        </div>
+                    </div>
+                    <div class="science-card-source">International Journal of Nursing & Health Sciences (IJNHS)</div>
+                </div>
+
+                <div class="science-card">
+                    <span class="science-card-tag gold">Meta-Analisis</span>
+                    <h3>Meta-Analisis RCT Moringa & Kesehatan Kardiometabolik</h3>
+                    <p>Pencarian sistemik di PubMed, Scopus, dan Web of Science mengkonfirmasi efek positif suplementasi
+                        Moringa pada profil lipid, glikemik, dan tekanan darah dalam uji klinis acak.</p>
+                    <div class="science-card-source">MDPI Nutrients, Vol. 17(22), 2025 — doi:10.3390/nu17223501</div>
+                </div>
+
+                <div class="science-card">
+                    <span class="science-card-tag gold">Studi Stevia</span>
+                    <h3>Stevia Menurunkan LDL, Meningkatkan HDL Tanpa Efek Samping</h3>
+                    <p>Konsumsi 20 ml ekstrak stevia harian selama 1 bulan menurunkan total kolesterol, LDL, dan
+                        trigliserida, sekaligus meningkatkan HDL — tanpa efek samping yang dilaporkan.</p>
+                    <div class="science-card-stat">
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">↓</div>
+                            <div class="stat-badge-label">LDL & TG</div>
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">↑</div>
+                            <div class="stat-badge-label">HDL</div>
+                        </div>
+                        <div class="stat-badge">
+                            <div class="stat-badge-num">0</div>
+                            <div class="stat-badge-label">Efek Samping</div>
+                        </div>
+                    </div>
+                    <div class="science-card-source">Healthline Review of Clinical Study, 2009 | PMC 2021</div>
+                </div>
+
+                <div class="science-card">
+                    <span class="science-card-tag">Farmakologi</span>
+                    <h3>Stevia: Antidiabetik, Antihipertensi & Antilipidemia</h3>
+                    <p>Review komprehensif mengkonfirmasi steviol glycoside memiliki sifat antiobesitas,
+                        antihiperglikemik, antihipertensif, dan antihiperlipidemia — menjadikannya alternatif alami
+                        untuk sindrom metabolik.</p>
+                    <div class="science-card-source">PMC — Stevia rebaudiana: A Natural Alternative for Metabolic
+                        Syndrome (2021)</div>
+                </div>
+
+                <div class="science-card">
+                    <span class="science-card-tag">In Silico Study</span>
+                    <h3>Quercetin Kelor Menghambat HMG-CoA Reductase</h3>
+                    <p>Studi docking molekular menunjukkan bahwa fitokonstituean utama Moringa oleifera — khususnya
+                        quercetin — berikatan kuat dengan HMG-CoA reductase, enzim kunci biosintesis kolesterol hepatik.
+                    </p>
+                    <div class="science-card-source">PMC — Moringa oleifera Attenuates High-Cholesterol Diet, 2024</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety note -->
+        <section style="background: var(--parchment); padding: 3rem 2.5rem;">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <div class="section-label" style="text-align:center;">Transparansi & Keamanan</div>
+                <h2
+                    style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--forest);margin-bottom:1rem;">
+                    MorviaStevia adalah minuman fungsional pendukung kesehatan — bukan obat medis.</h2>
+                <p style="font-size:0.9rem;line-height:1.8;color:var(--text-mid);font-weight:300;">Seluruh bahan kami
+                    aman dikonsumsi sesuai dosis wajar. Stevia memiliki ADI (Acceptable Daily Intake) yang ditetapkan
+                    EFSA dan FDA sebesar 4 mg/kg berat badan. Daun kelor pada level konsumsi pangan dinyatakan aman oleh
+                    Nutrients, 2024. Konsultasikan dengan dokter jika Anda sedang dalam pengobatan penurun kolesterol
+                    atau gula darah.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-name">🍃 MorviaStevia</div>
+                    <p class="footer-brand-desc">Science-backed herbal tea dari Indonesia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Halaman</h4>
+                    <ul>
+                        <li><a onclick="showPage('beranda')">Beranda</a></li>
+                        <li><a onclick="showPage('toko')">Toko</a></li>
+                        <li><a onclick="showPage('jurnal')">Jurnal</a></li>
+                        <li><a onclick="showPage('tentang')">Tentang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Referensi</h4>
+                    <ul>
+                        <li><a>PubMed / PMC</a></li>
+                        <li><a>Frontiers Journals</a></li>
+                        <li><a>MDPI Nutrients</a></li>
+                        <li><a>ScienceDirect</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a>hello@morviastevia.id</a></li>
+                        <li><a>@morviastevia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2025 MorviaStevia · PKM-K<br><span
+                        style="font-size:0.7rem;opacity:0.6;">*Klaim berbasis referensi ilmiah. Bukan pengganti
+                        pengobatan medis.</span></div>
+                <div class="footer-sosmed">
+                    <div class="sosmed-btn">📘</div>
+                    <div class="sosmed-btn">📷</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     PAGE: TOKO
+════════════════════════════════════════ -->
+    <div id="page-toko" class="page">
+
+        <div class="shop-hero">
+            <div class="shop-hero-inner">
+                <div>
+                    <div class="section-label">Toko Kami</div>
+                    <h1 class="section-title">Pilih Paket<br><em>Terbaikmu</em></h1>
+                    <p class="section-body">Semua produk dibuat dalam batch kecil untuk menjaga kesegaran dan kualitas
+                        bahan.</p>
+                </div>
+                <div>
+                    <div
+                        style="font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--text-light);margin-bottom:0.5rem;">
+                        PENGIRIMAN</div>
+                    <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--forest);">Gratis ke
+                        seluruh Indonesia</div>
+                    <div style="font-size:0.82rem;color:var(--text-light);margin-top:0.25rem;">Minimum pembelian Rp
+                        75.000</div>
+                </div>
+            </div>
+            <div class="shop-filter">
+                <button class="filter-btn active" onclick="filterProducts('semua', this)">Semua</button>
+                <button class="filter-btn" onclick="filterProducts('sachet', this)">Teh Sachet</button>
+                <button class="filter-btn" onclick="filterProducts('loose', this)">Loose Leaf</button>
+                <button class="filter-btn" onclick="filterProducts('paket', this)">Paket Hemat</button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+
+            <div class="product-card" data-cat="sachet">
+                <div class="product-img">
+                    <span class="product-badge-corner">Terlaris</span>
+                    <div class="product-img-inner">
+                        <div class="product-img-inner">
+                            <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Teh Sachet</div>
+                    <div class="product-name">Classic Blend 20s</div>
+                    <p class="product-desc">Formula standar kelor & stevia dalam sachet praktis. Cocok untuk konsumsi
+                        harian di rumah atau kantor.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Rp 35.000 <span>per box · 20 sachet</span></div>
+                        <button class="btn-add" onclick="addToCart('Classic Blend 20s')">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="sachet">
+                <div class="product-img">
+                    <span class="product-badge-corner" style="background:var(--sage);color:white;">Baru</span>
+                    <div class="product-img-inner">
+
+                        <div class="product-img-inner">
+                            <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Teh Sachet</div>
+                    <div class="product-name">Lemon Ginger Blend</div>
+                    <p class="product-desc">Variasi dengan tambahan jahe dan lemon untuk rasa yang lebih segar dan
+                        manfaat anti-inflamasi tambahan.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Rp 38.000 <span>per box · 20 sachet</span></div>
+                        <button class="btn-add" onclick="addToCart('Lemon Ginger Blend')">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="loose">
+                <div class="product-img">
+                    <div class="product-img-inner">
+
+                        <div class="product-img-inner">
+                            <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Loose Leaf Premium</div>
+                    <div class="product-name">Forest Reserve 50g</div>
+                    <p class="product-desc">Daun kelor grade A dan daun stevia kering pilihan, digiling kasar untuk
+                        pengalaman menyeduh yang autentik.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Rp 65.000 <span>per pouch · ~40 sajian</span></div>
+                        <button class="btn-add" onclick="addToCart('Forest Reserve 50g')">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="paket" style="border: 2px solid var(--gold);">
+                <div class="product-img" style="background:var(--bark);">
+                    <span class="product-badge-corner" style="background:var(--gold);color:var(--forest);">Hemat
+                        20%</span>
+                    <div class="product-img-inner">
+
+                        <div class="product-img-inner">
+                            <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Paket Hemat</div>
+                    <div class="product-name">Starter 30 Hari</div>
+                    <p class="product-desc">Paket terlengkap: 2 box Classic Blend + 1 box Lemon Ginger + panduan
+                        konsumsi & jurnal kesehatan gratis.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Rp 87.000 <span>hemat Rp 21.000</span></div>
+                        <button class="btn-add" style="background:var(--gold);color:var(--forest);"
+                            onclick="addToCart('Starter 30 Hari')">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="product-card" data-cat="paket">
+                <div class="product-img" style="background:var(--forest);">
+                    <span class="product-badge-corner">Keluarga</span>
+                    <div class="product-img-inner">
+                        <!-- <div class="product-visual"
+                            style="display:flex;gap:6px;flex-wrap:wrap;width:140px;justify-content:center;">
+                            <div class="product-visual-box" style="width:50px;height:70px;font-size:18px;"></div>
+                            <div class="product-visual-box"
+                                style="width:50px;height:70px;font-size:18px;background:var(--gold);"></div>
+                            <div class="product-visual-box"
+                                style="width:50px;height:70px;font-size:18px;background:var(--moss);"></div>
+                        </div> -->
+
+                        <div class="product-img-inner">
+                            <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Paket Hemat</div>
+                    <div class="product-name">Bundle Keluarga 90 Hari</div>
+                    <p class="product-desc">6 box sachet pilihan + 1 pouch loose leaf untuk 3 bulan konsumsi rutin.
+                        Ideal untuk seluruh keluarga.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Rp 220.000 <span>hemat Rp 50.000</span></div>
+                        <button class="btn-add" onclick="addToCart('Bundle Keluarga 90 Hari')">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="sachet">
+                <div class="product-img"
+                    style="background: linear-gradient(135deg, var(--forest) 0%, var(--moss) 100%);">
+                    <div class="product-img-inner">
+                        <!-- <div class="product-visual">
+                            <div class="product-visual-box" style="background:var(--fern);font-size:28px;">🌸</div>
+                        </div> -->
+                        <div class="product-img-inner">
+                            <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Teh Sachet</div>
+                    <div class="product-name">Rose Hibiscus Blend</div>
+                    <p class="product-desc">Kolaborasi kelor-stevia dengan bunga rosella dan hibiscus untuk antioksidan
+                        anthocyanin yang tinggi dan warna merah yang cantik.</p>
+                    <div class="product-footer">
+                        <div class="product-price">Rp 42.000 <span>per box · 20 sachet</span></div>
+                        <button class="btn-add" onclick="addToCart('Rose Hibiscus Blend')">+ Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Guarantee -->
+        <section style="background:var(--parchment);padding:4rem 2.5rem;text-align:center;">
+            <div
+                style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:800px;margin:0 auto;">
+                <div>
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🛡️</div>
+                    <div
+                        style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                        Garansi 14 Hari</div>
+                    <div style="font-size:0.82rem;color:var(--text-light);font-weight:300;">Uang kembali penuh tanpa
+                        syarat</div>
+                </div>
+                <div>
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🚚</div>
+                    <div
+                        style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                        Gratis Ongkir</div>
+                    <div style="font-size:0.82rem;color:var(--text-light);font-weight:300;">Ke seluruh Indonesia min. Rp
+                        75.000</div>
+                </div>
+                <div>
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🌿</div>
+                    <div
+                        style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                        100% Organik</div>
+                    <div style="font-size:0.82rem;color:var(--text-light);font-weight:300;">Bebas pestisida & bahan
+                        kimia</div>
+                </div>
+                <div>
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">📦</div>
+                    <div
+                        style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                        Kemasan Ramah Lingkungan</div>
+                    <div style="font-size:0.82rem;color:var(--text-light);font-weight:300;">Biodegradable, bisa didaur
+                        ulang</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-name">Anticholest</div>
+                    <p class="footer-brand-desc">Science-backed herbal tea dari Indonesia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Halaman</h4>
+                    <ul>
+                        <li><a onclick="showPage('beranda')">Beranda</a></li>
+                        <li><a onclick="showPage('sains')">Sains</a></li>
+                        <li><a onclick="showPage('jurnal')">Jurnal</a></li>
+                        <li><a onclick="showPage('tentang')">Tentang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a>Classic Blend</a></li>
+                        <li><a>Lemon Ginger</a></li>
+                        <li><a>Starter 30 Hari</a></li>
+                        <li><a>Bundle Keluarga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a>hello@morviastevia.id</a></li>
+                        <li><a>@morviastevia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2025 MorviaStevia · PKM-K</div>
+                <div class="footer-sosmed">
+                    <div class="sosmed-btn">📘</div>
+                    <div class="sosmed-btn">📷</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     PAGE: JURNAL SEHAT
+════════════════════════════════════════ -->
+    <div id="page-jurnal" class="page">
+
+        <div class="journal-hero">
+            <div class="section-label">Jurnal Sehat</div>
+            <h1 class="section-title">Edukasi & Inspirasi<br><em>Hidup Sehat</em></h1>
+            <p>Artikel, tips, dan panduan berbasis sains tentang kesehatan jantung, kolesterol, dan gaya hidup sehat
+                alami.</p>
+        </div>
+
+        <!-- Featured post -->
+        <div class="journal-featured">
+            <div class="journal-featured-card reveal">
+                <div class="journal-featured-img">
+                    <div class="product-img-inner">
+                        <img src="res/produk.png" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                </div>
+                <div class="journal-featured-body">
+                    <span class="journal-tag">Unggulan · Edukasi</span>
+                    <h2 class="journal-title">Kolesterol Tinggi: Musuh Diam-Diam yang Bisa Dilawan dengan Alam</h2>
+                    <p class="journal-excerpt">Kolesterol tinggi tidak menimbulkan gejala — tapi diam-diam merusak
+                        pembuluh darah. Pelajari bagaimana perubahan kecil dalam kebiasaan minum teh bisa membuat
+                        perbedaan besar untuk jantungmu.</p>
+                    <div class="journal-meta">
+                        <span>📅 15 November 2025</span>
+                        <span>⏱ 8 menit baca</span>
+                        <span>✍️ Tim MorviaStevia</span>
+                    </div>
+                    <button class="btn-primary"
+                        style="margin-top:1.5rem;background:var(--forest);color:var(--cream);">Baca Artikel →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article grid -->
+        <div style="padding: 2.5rem 2.5rem 0;">
+            <div class="section-label">Artikel Terbaru</div>
+        </div>
+
+        <div class="journal-grid reveal">
+
+            <div class="journal-card">
+                <div class="journal-card-date">12 Nov 2025 · Nutrisi</div>
+                <h3 class="journal-card-title">7 Alasan Mengapa Daun Kelor Dijuluki "Superfood" oleh Ilmuwan Dunia</h3>
+                <p class="journal-card-excerpt">Dari kandungan vitamin A yang 4× wortel hingga protein lengkap dengan
+                    semua asam amino esensial — inilah profil nutrisi luar biasa Moringa oleifera.</p>
+                <span class="journal-read-more">Baca Selengkapnya</span>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-card-date">8 Nov 2025 · Sains</div>
+                <h3 class="journal-card-title">Stevia vs Gula vs Pemanis Buatan: Mana yang Paling Aman untuk Jantung?
+                </h3>
+                <p class="journal-card-excerpt">Perbandingan komprehensif tiga jenis pemanis berdasarkan bukti ilmiah
+                    terbaru. Jawabannya mungkin mengejutkan Anda.</p>
+                <span class="journal-read-more">Baca Selengkapnya</span>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-card-date">3 Nov 2025 · Gaya Hidup</div>
+                <h3 class="journal-card-title">Panduan 30 Hari: Reset Kolesterol dengan Teh Herbal & Pola Makan</h3>
+                <p class="journal-card-excerpt">Program sederhana yang menggabungkan konsumsi teh MorviaStevia dengan
+                    perubahan pola makan anti-kolesterol yang mudah diikuti.</p>
+                <span class="journal-read-more">Baca Selengkapnya</span>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-card-date">28 Okt 2025 · Penelitian</div>
+                <h3 class="journal-card-title">Apa itu HMG-CoA Reductase? Cara Statin (dan Kelor) Bekerja di Tubuhmu
+                </h3>
+                <p class="journal-card-excerpt">Penjelasan sederhana tentang mekanisme biokimia di balik obat kolesterol
+                    — dan bagaimana quercetin kelor meniru aksinya secara alami.</p>
+                <span class="journal-read-more">Baca Selengkapnya</span>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-card-date">22 Okt 2025 · Resep</div>
+                <h3 class="journal-card-title">5 Cara Menyeduh Teh Kelor Stevia yang Enak — Panas & Dingin</h3>
+                <p class="journal-card-excerpt">Dari MorviaStevia Latte hangat di pagi hari hingga iced blend yang
+                    menyegarkan di sore hari — panduan lengkap untuk pemula.</p>
+                <span class="journal-read-more">Baca Selengkapnya</span>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-card-date">15 Okt 2025 · Kesehatan</div>
+                <h3 class="journal-card-title">Sindrom Metabolik: Ketika Kolesterol, Gula Darah & Tekanan Darah
+                    Menyerang Bersama</h3>
+                <p class="journal-card-excerpt">Memahami sindrom metabolik dan mengapa kombinasi kelor-stevia bisa
+                    menjadi pendekatan holistik yang efektif untuk menghadapinya.</p>
+                <span class="journal-read-more">Baca Selengkapnya</span>
+            </div>
+
+        </div>
+
+        <!-- Newsletter -->
+        <section style="background:var(--forest);padding:5rem 2.5rem;text-align:center;">
+            <div class="section-label" style="color:var(--fern);text-align:center;">Newsletter</div>
+            <h2
+                style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--cream);max-width:500px;margin:0 auto 1rem;">
+                Artikel Sains & Tips Sehat Langsung ke Emailmu</h2>
+            <p
+                style="color:var(--mint);font-weight:300;max-width:400px;margin:0 auto 2rem;font-size:0.9rem;line-height:1.75;">
+                Dua artikel per bulan. Tidak ada spam. Bisa berhenti langganan kapan saja.</p>
+            <div style="display:flex;gap:10px;max-width:420px;margin:0 auto;">
+                <input type="email" placeholder="emailmu@contoh.com" class="form-input" style="flex:1;">
+                <button class="btn-primary">Subscribe</button>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-name">🍃 MorviaStevia</div>
+                    <p class="footer-brand-desc">Science-backed herbal tea dari Indonesia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Halaman</h4>
+                    <ul>
+                        <li><a onclick="showPage('beranda')">Beranda</a></li>
+                        <li><a onclick="showPage('sains')">Sains</a></li>
+                        <li><a onclick="showPage('toko')">Toko</a></li>
+                        <li><a onclick="showPage('tentang')">Tentang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a>Edukasi</a></li>
+                        <li><a>Nutrisi</a></li>
+                        <li><a>Resep</a></li>
+                        <li><a>Penelitian</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a>hello@morviastevia.id</a></li>
+                        <li><a>@morviastevia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2025 MorviaStevia · PKM-K</div>
+                <div class="footer-sosmed">
+                    <div class="sosmed-btn">📘</div>
+                    <div class="sosmed-btn">📷</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     PAGE: TENTANG KAMI
+════════════════════════════════════════ -->
+    <div id="page-tentang" class="page">
+
+        <div class="about-hero">
+            <div class="section-label">Tentang Kami</div>
+            <h1 class="section-title">Lahir dari <em>Semangat</em><br>Riset Mahasiswa</h1>
+            <p class="about-manifesto">"Kami percaya bahwa kesehatan terbaik bersumber dari alam — dan alam Indonesia
+                memiliki segalanya."</p>
+        </div>
+
+        <div class="about-split">
+            <div class="about-story reveal">
+                <h2>Kisah Kami</h2>
+                <p>Meningkatnya kesadaran masyarakat terhadap gaya hidup sehat mendorong perubahan pola konsumsi,
+                    khususnya dalam memilih produk minuman yang lebih alami dan rendah gula. Namun, sebagian besar
+                    minuman herbal yang beredar di pasaran masih mengandung gula tambahan atau pemanis buatan dalam
+                    jumlah tinggi, sehingga kurang aman bagi penderita diabetes maupun individu dengan risiko kolesterol
+                    tinggi. Kondisi ini menunjukkan adanya kebutuhan akan inovasi minuman sehat yang tidak hanya alami,
+                    tetapi juga aman dikonsumsi secara berkelanjutan.</p>
+                <p>Indonesia memiliki potensi sumber daya alam yang melimpah, seperti daun kelor, bunga telang, dan
+                    stevia yang memiliki manfaat kesehatan. Daun kelor dikenal mengandung senyawa antioksidan dan
+                    nutrisi yang berperan dalam membantu menurunkan kadar kolesterol. Bunga telang kaya akan antosianin
+                    yang berfungsi sebagai antioksidan, sedangkan stevia merupakan pemanis alami yang tidak meningkatkan
+                    kadar gula darah. Kombinasi ketiga bahan tersebut berpotensi menghasilkan minuman fungsional namun,
+                    pemanfaatan bahan-bahan tersebut masih belum optimal dan umumnya hanya digunakan secara terbatas
+                    dalam konsumsi rumah tangga. Kondisi ini menunjukkan adanya peluang untuk mengembangkan produk
+                    bernilai tambah berbasis bahan lokal yang memiliki manfaat kesehatan sekaligus nilai ekonomi.</p>
+                <p>Pengembangan produk ini juga sejalan dengan pencapaian Sustainable Development Goals (SDGs),
+                    khususnya:</p>
+                <p>
+                    <li>SDGs 3 (Good Health and Well-being) melalui penyediaan minuman sehat yang mendukung pencegahan
+                        penyakit</li>
+                    <li>SDGs 8 (Decent Work and Economic Growth) melalui penciptaan peluang usaha bagi mahasiswa</li>
+                    <li>SDGs 12 (Responsible Consumption and Production) melalui pemanfaatan bahan alami dan ramah
+                        lingkungan</li>
+                </p>
+                <p>
+                    Berdasarkan kondisi tersebut, dikembangkan produk AntiCholest Herbal Tea, yaitu minuman teh herbal
+                    berbasis bahan alami sebagai alternatif pencegahan kolesterol dan pengontrol gula darah. Produk ini
+                    diharapkan tidak hanya memberikan manfaat kesehatan bagi konsumen, tetapi juga menjadi peluang usaha
+                    yang inovatif dan berkelanjutan bagi mahasiswa.
+                </p>
+            </div>
+            <div class="about-values reveal">
+                <h2>Nilai Kami</h2>
+                <div class="value-item">
+                    <div class="value-name">Transparansi Ilmiah</div>
+                    <p class="value-desc">Setiap klaim kesehatan memiliki referensi jurnal yang bisa diverifikasi
+                        publik. Tidak ada janji berlebihan.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-name">Lokal & Berkelanjutan</div>
+                    <p class="value-desc">Bahan baku dari petani lokal, kemasan ramah lingkungan, rantai pasok yang
+                        transparan dan adil.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-name">Aksesibilitas Kesehatan</div>
+                    <p class="value-desc">Produk berkualitas sains tidak harus mahal. Kami berkomitmen menjaga harga
+                        yang terjangkau untuk semua kalangan.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-name">Inovasi Berkelanjutan</div>
+                    <p class="value-desc">Kami terus mengembangkan formulasi baru berdasarkan penelitian terbaru dan
+                        umpan balik komunitas pengguna.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-name">Komunitas & Edukasi</div>
+                    <p class="value-desc">Literasi kesehatan adalah misi utama kami. Setiap konten yang kami buat
+                        bertujuan mencerdaskan, bukan sekadar menjual.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="team-section">
+            <div class="section-label">Tim Pendiri</div>
+            <h2 class="section-title">Orang-orang di<br>Balik <em>MorviaStevia</em></h2>
+            <div class="team-grid reveal">
+                <div class="team-card">
+                    <img src="res/team/Dani.webp" alt="Dany Gultom" class="team-avatar">
+                    <div class="team-name">Dany Christian Gultom</div>
+                    <div class="team-role">CEO<br>Bisnis Digital, Semester 4</div>
+                </div>
+
+                <div class="team-card">
+                    <img src="res/team/Fira.jpeg" alt="Ghania Zafira Eryo" class="team-avatar">
+                    <div class="team-name">Ghania Zafira Eryo</div>
+                    <div class="team-role">COO<br>Bisnis Digital, Semester 4</div>
+                </div>
+
+                <div class="team-card">
+                    <img src="res/team/grace.jpeg" alt="Graceya Reyvanita Sipahutar" class="team-avatar">
+                    <div class="team-name">Graceya Reyvanita Sipahutar</div>
+                    <div class="team-role">CFO<br>Komunikasi, Semester 6</div>
+                </div>
+
+                <div class="team-card">
+                    <img src="res/team/Rifa.jpeg" alt="Ghania Zarifa Eryo" class="team-avatar">
+                    <div class="team-name">Ghania Zarifa Eryo</div>
+                    <div class="team-role">CMO<br>Teknik Informatika, Semester 6</div>
+                </div>
+                <div class="team-card">
+                    <img src="res/team/ido.jpeg" alt="Ido Refael SIregar" class="team-avatar">
+                    <div class="team-name">Ido Refael Siregar</div>
+                    <div class="team-role">CTO<br>Teknik Informatika, Semester 6</div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <section style="background:var(--parchment);padding:5rem 2.5rem;">
+                <div class="section-label">Perjalanan Kami</div>
+                <h2 class="section-title" style="margin-bottom:3rem;">Dari <em>ide</em> ke realita</h2>
+                <div style="display:flex;flex-direction:column;gap:0;max-width:600px;">
+                    <div
+                        style="display:flex;gap:2rem;padding-bottom:2.5rem;border-left:2px solid rgba(74,124,95,0.2);margin-left:10px;padding-left:2rem;position:relative;">
+                        <div
+                            style="position:absolute;left:-9px;top:0;width:16px;height:16px;border-radius:50%;background:var(--sage);">
+                        </div>
+                        <div>
+                            <div
+                                style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--sage);letter-spacing:0.1em;margin-bottom:0.4rem;">
+                                JAN 2025</div>
+                            <div
+                                style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                                Riset Literatur</div>
+                            <div style="font-size:0.85rem;color:var(--text-mid);font-weight:300;line-height:1.65;">
+                                Kajian
+                                sistematis 50+ jurnal ilmiah tentang Moringa oleifera dan Stevia rebaudiana.</div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;gap:2rem;padding-bottom:2.5rem;border-left:2px solid rgba(74,124,95,0.2);margin-left:10px;padding-left:2rem;position:relative;">
+                        <div
+                            style="position:absolute;left:-9px;top:0;width:16px;height:16px;border-radius:50%;background:var(--sage);">
+                        </div>
+                        <div>
+                            <div
+                                style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--sage);letter-spacing:0.1em;margin-bottom:0.4rem;">
+                                MAR 2025</div>
+                            <div
+                                style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                                Pengembangan Formulasi</div>
+                            <div style="font-size:0.85rem;color:var(--text-mid);font-weight:300;line-height:1.65;">50+
+                                iterasi formulasi untuk mencapai rasio optimal kelor:stevia dengan profil rasa yang
+                                dapat
+                                diterima.</div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;gap:2rem;padding-bottom:2.5rem;border-left:2px solid rgba(74,124,95,0.2);margin-left:10px;padding-left:2rem;position:relative;">
+                        <div
+                            style="position:absolute;left:-9px;top:0;width:16px;height:16px;border-radius:50%;background:var(--gold);">
+                        </div>
+                        <div>
+                            <div
+                                style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--sage);letter-spacing:0.1em;margin-bottom:0.4rem;">
+                                JUN 2025</div>
+                            <div
+                                style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                                Uji Organoleptik & Sensori</div>
+                            <div style="font-size:0.85rem;color:var(--text-mid);font-weight:300;line-height:1.65;">
+                                Pengujian
+                                dengan 80 responden — tingkat penerimaan rasa 78%, kemauan beli 85%.</div>
+                        </div>
+                    </div>
+                    <div
+                        style="display:flex;gap:2rem;padding-bottom:0;margin-left:10px;padding-left:2rem;position:relative;">
+                        <div
+                            style="position:absolute;left:-9px;top:0;width:16px;height:16px;border-radius:50%;background:var(--forest);">
+                        </div>
+                        <div>
+                            <div
+                                style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--sage);letter-spacing:0.1em;margin-bottom:0.4rem;">
+                                OKT 2025</div>
+                            <div
+                                style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--forest);margin-bottom:0.4rem;">
+                                Peluncuran MorviaStevia</div>
+                            <div style="font-size:0.85rem;color:var(--text-mid);font-weight:300;line-height:1.65;">
+                                Produk
+                                resmi diluncurkan sebagai bagian dari program PKM-K. Tersedia di platform digital.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section class="contact-section">
+                <div class="section-label" style="text-align:center;display:block;">Hubungi Kami</div>
+                <h2 class="section-title">Ada Pertanyaan atau<br><em>Ide Kolaborasi?</em></h2>
+                <p>Kami senang mendengar dari komunitas, akademisi, investor, dan siapa saja yang berbagi semangat kami
+                    tentang kesehatan berbasis sains.</p>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <input type="text" placeholder="Nama lengkap" class="form-input">
+                    <input type="email" placeholder="Alamat email" class="form-input">
+                    <select class="form-input" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+                        <option value="" style="color:#333">Topik pesan...</option>
+                        <option style="color:#333">Pertanyaan Produk</option>
+                        <option style="color:#333">Kolaborasi & Kemitraan</option>
+                        <option style="color:#333">Informasi PKM-K</option>
+                        <option style="color:#333">Media & Pers</option>
+                        <option style="color:#333">Lainnya</option>
+                    </select>
+                    <textarea placeholder="Pesan Anda..." class="form-textarea"></textarea>
+                    <button type="submit" class="btn-primary">Kirim Pesan →</button>
+                </form>
+            </section>
+
+            <footer>
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-brand-name">🍃 MorviaStevia</div>
+                        <p class="footer-brand-desc">Science-backed herbal tea dari Indonesia. Produk PKM-K mahasiswa
+                            Indonesia.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Halaman</h4>
+                        <ul>
+                            <li><a onclick="showPage('beranda')">Beranda</a></li>
+                            <li><a onclick="showPage('sains')">Sains & Khasiat</a></li>
+                            <li><a onclick="showPage('toko')">Toko</a></li>
+                            <li><a onclick="showPage('jurnal')">Jurnal Sehat</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Info</h4>
+                        <ul>
+                            <li><a>FAQ</a></li>
+                            <li><a>Syarat & Ketentuan</a></li>
+                            <li><a>Kebijakan Privasi</a></li>
+                            <li><a>Referensi Ilmiah</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Kontak</h4>
+                        <ul>
+                            <li><a>hello@morviastevia.id</a></li>
+                            <li><a>@morviastevia</a></li>
+                            <li><a>Tokopedia</a></li>
+                            <li><a>Shopee</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-copy">© 2025 MorviaStevia. Produk PKM-K. Semua hak cipta dilindungi.<br><span
+                            style="font-size:0.7rem;opacity:0.6;">*Bukan pengganti pengobatan medis. Konsultasikan
+                            dengan
+                            dokter Anda.</span></div>
+                    <div class="footer-sosmed">
+                        <div class="sosmed-btn">📘</div>
+                        <div class="sosmed-btn">📷</div>
+                        <div class="sosmed-btn">🎵</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // ─── PAGE NAVIGATION ───
+            function showPage(id) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                document.getElementById('page-' + id).classList.add('active');
+                const navEl = document.getElementById('nav-' + id);
+                if (navEl) navEl.classList.add('active');
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                setTimeout(initReveal, 100);
+                return false;
+            }
+
+            // ─── REVEAL ON SCROLL ───
+            function initReveal() {
+                const els = document.querySelectorAll('.page.active .reveal');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((e, i) => {
+                        if (e.isIntersecting) {
+                            setTimeout(() => e.target.classList.add('visible'), i * 80);
+                            observer.unobserve(e.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                els.forEach(el => observer.observe(el));
+            }
+
+            // ─── PRODUCT FILTER ───
+            function filterProducts(cat, btn) {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.product-card').forEach(card => {
+                    if (cat === 'semua' || card.dataset.cat === cat) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // ─── ADD TO CART ───
+            function addToCart(name) {
+                const notif = document.getElementById('cartNotif');
+                notif.textContent = '✓ ' + name + ' ditambahkan ke keranjang';
+                notif.style.display = 'block';
+                setTimeout(() => {
+                    notif.style.display = 'none';
+                }, 3000);
+            }
+
+            // ─── FORM SUBMIT ───
+            function handleSubmit(e) {
+                e.preventDefault();
+                alert('Terima kasih! Pesan Anda telah diterima. Kami akan menghubungi Anda dalam 1×24 jam.');
+            }
+
+            // ─── INIT ───
+            document.addEventListener('DOMContentLoaded', () => {
+                initReveal();
+            });
+            initReveal();
+        </script>
+</body>
+
+</html>
